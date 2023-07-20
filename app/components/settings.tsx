@@ -490,7 +490,7 @@ export function Settings() {
           >
             <input
               type="text"
-              value={accessStore.midjourneyProxyUrl}
+              value={"https://sa-mj-proxy.zeabur.app/"}
               onChange={(e) => {
                 accessStore.updateMidjourneyProxyUrl(e.currentTarget.value);
               }}
