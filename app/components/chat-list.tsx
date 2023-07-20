@@ -79,12 +79,12 @@ export function ChatItem(props: {
             </>
           )}
 
-          <div
+          {/* <div
             className={styles["chat-item-delete"]}
             onClickCapture={props.onDelete}
           >
             <DeleteIcon />
-          </div>
+          </div> */}
         </div>
       )}
     </Draggable>
@@ -103,57 +103,57 @@ export function ChatList(props: { narrow?: boolean }) {
   const chatStore = useChatStore();
   const navigate = useNavigate();
 
-  const onDragEnd: OnDragEndResponder = (result) => {
-    const { destination, source } = result;
-    if (!destination) {
-      return;
-    }
+  // const onDragEnd: OnDragEndResponder = (result) => {
+  //   const { destination, source } = result;
+  //   if (!destination) {
+  //     return;
+  //   }
 
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
+  //   if (
+  //     destination.droppableId === source.droppableId &&
+  //     destination.index === source.index
+  //   ) {
+  //     return;
+  //   }
 
-    moveSession(source.index, destination.index);
-  };
+  //   moveSession(source.index, destination.index);
+  // };
 
-  return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="chat-list">
-        {(provided) => (
-          <div
-            className={styles["chat-list"]}
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-          >
-            {sessions.map((item, i) => (
-              <ChatItem
-                title={item.topic}
-                time={new Date(item.lastUpdate).toLocaleString()}
-                count={item.messages.length}
-                key={item.id}
-                id={item.id}
-                index={i}
-                selected={i === selectedIndex}
-                onClick={() => {
-                  navigate(Path.Chat);
-                  selectSession(i);
-                }}
-                onDelete={() => {
-                  if (!props.narrow || confirm(Locale.Home.DeleteChat)) {
-                    chatStore.deleteSession(i);
-                  }
-                }}
-                narrow={props.narrow}
-                mask={item.mask}
-              />
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
-  );
+  // return (
+  //   <DragDropContext onDragEnd={onDragEnd}>
+  //     <Droppable droppableId="chat-list">
+  //       {(provided) => (
+  //         <div
+  //           className={styles["chat-list"]}
+  //           ref={provided.innerRef}
+  //           {...provided.droppableProps}
+  //         >
+  //           {sessions.map((item, i) => (
+  //             <ChatItem
+  //               title={item.topic}
+  //               time={new Date(item.lastUpdate).toLocaleString()}
+  //               count={item.messages.length}
+  //               key={item.id}
+  //               id={item.id}
+  //               index={i}
+  //               selected={i === selectedIndex}
+  //               onClick={() => {
+  //                 navigate(Path.Chat);
+  //                 selectSession(i);
+  //               }}
+  //               onDelete={() => {
+  //                 if (!props.narrow || confirm(Locale.Home.DeleteChat)) {
+  //                   chatStore.deleteSession(i);
+  //                 }
+  //               }}
+  //               narrow={props.narrow}
+  //               mask={item.mask}
+  //             />
+  //           ))}
+  //           {provided.placeholder}
+  //         </div>
+  //       )}
+  //     </Droppable>
+  //   </DragDropContext>
+  // );
 }
