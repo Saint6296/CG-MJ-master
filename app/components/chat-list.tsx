@@ -66,7 +66,7 @@ export function ChatItem(props: {
               </div>
             </div>
           ) : (
-            <>
+            
               <div className={styles["chat-item-title"]}>{props.title}</div>
               <div className={styles["chat-item-info"]}>
                 <div className={styles["chat-item-count"]}>
@@ -86,9 +86,6 @@ export function ChatItem(props: {
             <DeleteIcon />
           </div>
         </div>
-
-
-        
       )}
     </Draggable>
   );
