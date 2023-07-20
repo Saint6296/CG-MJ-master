@@ -490,7 +490,7 @@ export function Settings() {
           >
             <input
               type="text"
-              value={"accessStore.midjourneyProxyUrl"}
+              value={accessStore.midjourneyProxyUrl}
               onChange={(e) => {
                 accessStore.updateMidjourneyProxyUrl(e.currentTarget.value);
               }}
