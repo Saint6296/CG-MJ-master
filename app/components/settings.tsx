@@ -482,7 +482,7 @@ export function Settings() {
             ></input>
           </ListItem>
         </List>
-
+//**
         <List>
           <ListItem
             title={`MidjourneyProxy ${Locale.Midjourney.Url}`}
@@ -511,7 +511,7 @@ export function Settings() {
               }
             ></input>
           </ListItem>
-        </List>
+        </List> 
 
         <List>
           {enabledAccessControl ? (
@@ -572,7 +572,7 @@ export function Settings() {
             )}
           </ListItem>
         </List>
-
+*/
         <List>
           <ListItem
             title={Locale.Settings.Prompt.Disable.Title}
