@@ -46,12 +46,6 @@ export function ChatItem(props: {
             props.selected && styles["chat-item-selected"]
           }`}
           onClick={props.onClick}
-          ref={(ele) => {
-            draggableRef.current = ele;
-            provided.innerRef(ele);
-          }}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
           title={`${props.title}\n${Locale.ChatItem.ChatItemCount(
             props.count,
           )}`}
