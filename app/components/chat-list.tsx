@@ -84,9 +84,10 @@ export function ChatItem(props: {
             <DeleteIcon />
           </div>
         </div>
-           <div>p123</div>       
+                  
       )}
     </Draggable>
+    <div>p123</div>
   );
 }
 
