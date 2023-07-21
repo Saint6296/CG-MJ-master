@@ -1,20 +1,20 @@
 import DeleteIcon from "../icons/delete.svg";
-import BotIcon from "../icons/bot.svg";
+// import BotIcon from "../icons/bot.svg";
 
 import styles from "./home.module.scss";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  OnDragEndResponder,
-} from "@hello-pangea/dnd";
+// import {
+//   DragDropContext,
+//   Droppable,
+//   Draggable,
+//   OnDragEndResponder,
+// } from "@hello-pangea/dnd";
 
-import { useChatStore } from "../store";
+// import { useChatStore } from "../store";
 
 import Locale from "../locales";
-import { Link, useNavigate } from "react-router-dom";
-import { Path } from "../constant";
-import { MaskAvatar } from "./mask";
+// import { Link, useNavigate } from "react-router-dom";
+// import { Path } from "../constant";
+// import { MaskAvatar } from "./mask";
 import { Mask } from "../store/mask";
 import { useRef, useEffect } from "react";
 
