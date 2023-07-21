@@ -40,7 +40,7 @@ export function ChatItem(props: {
   }, [props.selected]);
   return (
     // <Draggable draggableId={`${props.id}`} index={props.index}>
-    //   {(provided) => (
+    //    {(provided) => (
         <div
           className={`${styles["chat-item"]} ${
             props.selected && styles["chat-item-selected"]
