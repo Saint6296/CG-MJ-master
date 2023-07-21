@@ -84,10 +84,18 @@ export function ChatItem(props: {
             <DeleteIcon />
           </div>
         </div>
+        <div
+        className={`${styles["chat-item"]} ${
+          props.selected && styles["chat-item-selected"]
+        }`}
+        onClick={props.onClick}
+        title={`${props.title}\n${Locale.ChatItem.ChatItemCount(
+          props.count,
+        )}`}
+      ></div>
                   
       )}
     </Draggable>
-    <div>p123</div>
   );
 }
 
