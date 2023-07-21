@@ -30,21 +30,33 @@ export function ChatItem(props: {
   narrow?: boolean;
   mask: Mask;
 }) {
-      <div className={`${styles["chat-item"]} ${props.selected && styles["chat-item-selected"]}`} onClick={props.onClick} title={`${props.title}\n${Locale.ChatItem.ChatItemCount(props.count,)}`}>
-        <div className={styles["chat-item-title"]}>{props.title}</div><div className={styles["chat-item-info"]}>
-          <div className={styles["chat-item-count"]}>
-            {Locale.ChatItem.ChatItemCount(props.count)}
-          </div>
-          <div className={styles["chat-item-date"]}>
-            {new Date(props.time).toLocaleString()}
-          </div>
-        </div>
+        <div
+          className={`${styles["chat-item"]} ${
+            props.selected && styles["chat-item-selected"]
+          }`}
+          onClick={props.onClick}
+          title={`${props.title}\n${Locale.ChatItem.ChatItemCount(
+            props.count,
+          )}`}
+        >
+              <div className={styles["chat-item-title"]}>{props.title}</div><div className={styles["chat-item-info"]}>
+              <div className={styles["chat-item-count"]}>
+                {Locale.ChatItem.ChatItemCount(props.count)}
+              </div>
+              <div className={styles["chat-item-date"]}>
+                {new Date(props.time).toLocaleString()}
+              </div>
+            </div>
 
-        <div className={styles["chat-item-delete"]} onClickCapture={props.onDelete}>
-          <DeleteIcon />
+          <div
+            className={styles["chat-item-delete"]}
+            onClickCapture={props.onDelete}
+          >
+            <DeleteIcon />
+          </div>
         </div>
-      </div>
-    }
+  
+}
 
 export function ChatList(props: { narrow?: boolean }) {
   const [sessions, selectedIndex, selectSession, moveSession] = useChatStore(
