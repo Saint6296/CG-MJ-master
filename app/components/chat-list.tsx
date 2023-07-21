@@ -19,17 +19,17 @@ import { Mask } from "../store/mask";
 import { useRef, useEffect } from "react";
 
 export function ChatItem(props: {
-  onClick?: () => void;
-  onDelete?: () => void;
-  title: string;
-  count: number;
-  time: string;
-  selected: boolean;
-  id: number;
-  index: number;
-  narrow?: boolean;
-  mask: Mask;
-}) {
+                                  onClick?: () => void;
+                                  onDelete?: () => void;
+                                  title: string;
+                                  count: number;
+                                  time: string;
+                                  selected: boolean;
+                                  id: number;
+                                  index: number;
+                                  narrow?: boolean;
+                                  mask: Mask;
+                                }) {
   const draggableRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (props.selected && draggableRef.current) {
@@ -84,6 +84,7 @@ export function ChatItem(props: {
             <DeleteIcon />
           </div>
         </div>
+        <div>test</div>
       )}
     </Draggable>
   );
