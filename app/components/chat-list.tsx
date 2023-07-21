@@ -39,8 +39,8 @@ export function ChatItem(props: {
     }
   }, [props.selected]);
   return (
-    <Draggable draggableId={`${props.id}`} index={props.index}>
-      {(provided) => (
+    // <Draggable draggableId={`${props.id}`} index={props.index}>
+    //   {(provided) => (
         <div
           className={`${styles["chat-item"]} ${
             props.selected && styles["chat-item-selected"]
@@ -56,8 +56,16 @@ export function ChatItem(props: {
             props.count,
           )}`}
         >
-
-            
+          {/* {props.narrow ? (
+            <div className={styles["chat-item-narrow"]}>
+              <div className={styles["chat-item-avatar"] + " no-dark"}>
+                <MaskAvatar mask={props.mask} />
+              </div>
+              <div className={styles["chat-item-narrow-count"]}>
+                {props.count}
+              </div>
+            </div>
+          ) : ( */}        
               <><div className={styles["chat-item-title"]}>{props.title}</div><div className={styles["chat-item-info"]}>
                 <div className={styles["chat-item-count"]}>
                   {Locale.ChatItem.ChatItemCount(props.count)}
@@ -66,7 +74,7 @@ export function ChatItem(props: {
                   {new Date(props.time).toLocaleString()}
                 </div>
               </div></>
-
+          {/* )} */}
 
           <div
             className={styles["chat-item-delete"]}
@@ -77,8 +85,8 @@ export function ChatItem(props: {
         </div>
         
         
-      )}
-    </Draggable>
+    //   )}
+    // </Draggable>
   );
 }
 
