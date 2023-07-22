@@ -30,23 +30,54 @@ export function ChatItem(props: {
   narrow?: boolean;
   mask: Mask;
 }) {
+  const draggableRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (props.selected && draggableRef.current) {
+      draggableRef.current?.scrollIntoView({
+        block: "center",
+      });
+    }
+  }, [props.selected]);
+  return (
+    <Draggable draggableId={`${props.id}`} index={props.index}>
+      {(provided) => (
         <div
           className={`${styles["chat-item"]} ${
             props.selected && styles["chat-item-selected"]
           }`}
           onClick={props.onClick}
+          ref={(ele) => {
+            draggableRef.current = ele;
+            provided.innerRef(ele);
+          }}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
           title={`${props.title}\n${Locale.ChatItem.ChatItemCount(
             props.count,
           )}`}
         >
-              <div className={styles["chat-item-title"]}>{props.title}</div><div className={styles["chat-item-info"]}>
-              <div className={styles["chat-item-count"]}>
-                {Locale.ChatItem.ChatItemCount(props.count)}
+          {props.narrow ? (
+            <div className={styles["chat-item-narrow"]}>
+              <div className={styles["chat-item-avatar"] + " no-dark"}>
+                <MaskAvatar mask={props.mask} />
               </div>
-              <div className={styles["chat-item-date"]}>
-                {new Date(props.time).toLocaleString()}
+              <div className={styles["chat-item-narrow-count"]}>
+                {props.count}
               </div>
             </div>
+          ) : (
+            <>
+              <div className={styles["chat-item-title"]}>{props.title}</div>
+              <div className={styles["chat-item-info"]}>
+                <div className={styles["chat-item-count"]}>
+                  {Locale.ChatItem.ChatItemCount(props.count)}
+                </div>
+                <div className={styles["chat-item-date"]}>
+                  {new Date(props.time).toLocaleString()}
+                </div>
+              </div>
+            </>
+          )}
 
           <div
             className={styles["chat-item-delete"]}
@@ -55,7 +86,9 @@ export function ChatItem(props: {
             <DeleteIcon />
           </div>
         </div>
-  
+      )}
+    </Draggable>
+  );
 }
 
 export function ChatList(props: { narrow?: boolean }) {
